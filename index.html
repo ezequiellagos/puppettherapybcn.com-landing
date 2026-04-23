@@ -151,7 +151,22 @@
           />
         </a>
 
-        <nav class="site-nav" aria-label="Primary">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation menu"
+        >
+          <span class="menu-toggle__label">Menu</span>
+          <span class="menu-toggle__icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+
+        <nav class="site-nav" id="primary-nav" aria-label="Primary">
           <a href="#who-we-are">Who We Are</a>
           <a href="#programs">Programs</a>
           <a href="#community">Community</a>
@@ -214,6 +229,24 @@
                   fetchpriority="high"
                 />
               </figure>
+            </div>
+
+            <div class="hero__card hero__card--video">
+              <div class="hero-video">
+                <video
+                  src="assets/media/hero-reel.mp4"
+                  poster="assets/programs/hero-main.png"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+              </div>
+              <div class="hero__card-copy">
+                <p class="hero__note-label">In Motion</p>
+                <p>A short moving glimpse into the material, gestural, and relational atmosphere of the school.</p>
+              </div>
             </div>
 
             <div class="hero__note hero__note--top">
@@ -298,14 +331,23 @@
 
         <div class="shell cards-grid">
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/training-barcelona-8th.png"
-                alt="Poster for the 8th in-person training in Barcelona"
-                width="1200"
-                height="1600"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="training-barcelona-8th"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for 8th Training in Barcelona"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/training-barcelona-8th.png"
+                  alt="Poster for the 8th in-person training in Barcelona"
+                  width="1200"
+                  height="1600"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">In-person intensive</p>
               <h3>8th Training in Barcelona</h3>
@@ -326,16 +368,25 @@
           </article>
 
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/course-online-english-17th.png"
-                alt="Poster for the 17th Puppet Therapy Course online in English"
-                width="1200"
-                height="1600"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="course-online-english-17th"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for 17th Puppet Therapy Course Online, English Version"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/course-online-english-17th.png"
+                  alt="Poster for the 17th Puppet Therapy Course online in English"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">Online course</p>
               <h3>17th Puppet Therapy Course Online, English Version</h3>
@@ -356,16 +407,25 @@
           </article>
 
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/diplomado-online-spanish.png"
-                alt="Poster for the online Puppet Therapy diploma in Spanish"
-                width="1200"
-                height="1600"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="diplomado-online-spanish"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for Diplomado Puppet Therapy Online, Spanish Version"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/diplomado-online-spanish.png"
+                  alt="Poster for the online Puppet Therapy diploma in Spanish"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">Online diploma</p>
               <h3>Diplomado Puppet Therapy Online, Spanish Version</h3>
@@ -386,16 +446,25 @@
           </article>
 
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/school-annual-barcelona.png"
-                alt="Poster for the annual Puppet Therapy School in-person program in Barcelona"
-                width="1200"
-                height="1600"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="school-annual-barcelona"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for Puppet Therapy School"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/school-annual-barcelona.png"
+                  alt="Poster for the annual Puppet Therapy School in-person program in Barcelona"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">Annual program</p>
               <h3>Puppet Therapy School</h3>
@@ -416,16 +485,25 @@
           </article>
 
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/workshop-things-that-breathe.png"
-                alt="Poster for the workshop Things That Breathe"
-                width="1200"
-                height="1600"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="workshop-things-that-breathe"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for Things That Breathe"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/workshop-things-that-breathe.png"
+                  alt="Poster for the workshop Things That Breathe"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">Workshop</p>
               <h3>Things That Breathe</h3>
@@ -446,16 +524,25 @@
           </article>
 
           <article class="course-card">
-            <figure class="course-card__media">
-              <img
-                src="assets/programs/workshop-puppet-humor-therapy.png"
-                alt="Poster for the workshop Puppet, Humor and Therapy"
-                width="1200"
-                height="1600"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
+            <button
+              class="course-card__media course-card__media-trigger"
+              type="button"
+              data-program-trigger="workshop-puppet-humor-therapy"
+              aria-haspopup="dialog"
+              aria-controls="program-modal"
+              aria-label="Open details for Puppet, Humor and Therapy"
+            >
+              <figure class="course-card__media-figure">
+                <img
+                  src="assets/programs/workshop-puppet-humor-therapy.png"
+                  alt="Poster for the workshop Puppet, Humor and Therapy"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </button>
             <div class="course-card__content">
               <p class="course-card__tag">Workshop</p>
               <h3>Puppet, Humor &amp; Therapy</h3>

@@ -94,11 +94,38 @@ const modalMeta = document.getElementById("program-modal-meta");
 const modalDescription = document.getElementById("program-modal-description");
 const compactHeaderOffset = 56;
 const contactSection = document.getElementById("contact");
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.getElementById("primary-nav");
+const mobileMenuBreakpoint = window.matchMedia("(max-width: 760px)");
 
 let lastFocusedElement = null;
 
 function syncHeaderState() {
   document.body.classList.toggle("header-compact", window.scrollY > compactHeaderOffset);
+}
+
+function closeMobileNav() {
+  document.body.classList.remove("mobile-nav-open");
+  if (menuToggle) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  }
+}
+
+function toggleMobileNav() {
+  if (!menuToggle || !mobileMenuBreakpoint.matches) {
+    return;
+  }
+
+  const isOpen = document.body.classList.toggle("mobile-nav-open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+}
+
+function syncMobileNavState() {
+  if (!mobileMenuBreakpoint.matches) {
+    closeMobileNav();
+  }
 }
 
 function getFocusableElements(container) {
@@ -188,13 +215,26 @@ function openModal(programId, trigger) {
 }
 
 document.addEventListener("click", (event) => {
+  const menuTrigger = event.target.closest(".menu-toggle");
+  if (menuTrigger) {
+    event.preventDefault();
+    toggleMobileNav();
+    return;
+  }
+
   const trigger = event.target.closest("[data-program-trigger]");
   if (trigger) {
+    closeMobileNav();
     const programId = trigger.getAttribute("data-program-trigger");
     if (programId && programs[programId]) {
       event.preventDefault();
       openModal(programId, trigger);
     }
+  }
+
+  const navLink = event.target.closest(".site-nav a");
+  if (navLink && mobileMenuBreakpoint.matches) {
+    closeMobileNav();
   }
 
   const modalContactTrigger = event.target.closest("[data-modal-contact]");
@@ -211,10 +251,27 @@ document.addEventListener("click", (event) => {
   if (event.target.closest("[data-modal-close]")) {
     closeModal();
   }
+
+  if (
+    document.body.classList.contains("mobile-nav-open") &&
+    siteNav &&
+    !event.target.closest(".site-nav") &&
+    !event.target.closest(".menu-toggle")
+  ) {
+    closeMobileNav();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && document.body.classList.contains("mobile-nav-open")) {
+    closeMobileNav();
+  }
 });
 
 window.addEventListener("scroll", syncHeaderState, { passive: true });
+window.addEventListener("resize", syncMobileNavState);
 syncHeaderState();
+syncMobileNavState();
 
 const formFrame = document.querySelector("[data-contact-form]");
 const formSrc = document.body.dataset.formSrc;
