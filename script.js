@@ -4,7 +4,7 @@ const programs = {
     title: "8th Training in Barcelona",
     image: "assets/programs/training-barcelona-8th.png",
     alt: "Poster for the 8th in-person training in Barcelona",
-    meta: ["Barcelona", "In person", "4 intensive days"],
+    meta: ["English", "Barcelona", "In person", "4 intensive days"],
     description: [
       "This embodied training is informed by polyvagal theory, the enactive approach to cognition, the somatic marker hypothesis, and relational and object-based thinking. It invites participants into expressive, sensitive, and embodied processes where body, perception, and materiality remain in constant dialogue.",
       "Across four intensive days, the work explores shame as an embodied, silent, and inhibiting experience alongside memory, trauma, post-witnessing, and insight-in-action.",
@@ -54,7 +54,7 @@ const programs = {
     alt: "Poster for the workshop Things That Breathe",
     meta: [
       "Online",
-      "Spanish",
+      "English",
       "8 experiential sessions",
       "May 6 to June 24, 2026",
       "Wednesdays, 18:00–19:30 Spain time"
@@ -71,6 +71,7 @@ const programs = {
     image: "assets/programs/workshop-puppet-humor-therapy.png",
     alt: "Poster for the workshop Puppet, Humor and Therapy",
     meta: [
+      "English",
       "Online",
       "Open to all adults",
       "5 sessions",
